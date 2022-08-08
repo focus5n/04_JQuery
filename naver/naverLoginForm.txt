@@ -1,0 +1,53 @@
+요청 URL 정보
+======================================
+
+
+메서드:
+GET / POST
+
+요청 URL:
+https://nid.naver.com/oauth2.0/authorize
+
+출력 포맷:
+URL 리다이렉트
+
+설명:
+네이버 로그인 인증 요청
+--------------------------------------
+
+
+요청 변수 정보
+
+response_type
+string
+Y
+default=code
+인증 과정에 대한 내부 구분값으로 'code'로 전송해야 함.
+
+client_id
+string
+Y
+애플리케이션 등록 시 발급받은 Client Id 값
+
+redirect_uri
+string
+Y
+애플리케이션 등록 시 입력한 Callback URL 값으로 URL 인코딩을 적용한 값
+
+state
+string
+Y
+CSRF 공격 방지를 위한 토큰 값
+--------------------------------------
+
+
+요청문 샘플
+https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=CLIENT_ID&state=STATE_STRING&redirect_uri=CALLBACK_URL
+--------------------------------------
+
+
+1. https://nid.naver.com/oauth2.0/authorize
+2. code 반환
+3. https://nid.naver.com/oauth2.0/token
+4. code 값을 요청으로 날림 -> 접근토근발급API
+--------------------------------------
